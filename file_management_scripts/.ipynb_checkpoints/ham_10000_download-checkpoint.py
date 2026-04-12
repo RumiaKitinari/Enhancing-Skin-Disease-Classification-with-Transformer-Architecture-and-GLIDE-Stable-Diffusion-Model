@@ -3,13 +3,13 @@ import os
 import shutil
 
 # 1.) Download HAM10000 dataset
-path = kagglehub.dataset_download("kmader/skin-cancer-mnist-ham10000")
+path = kagglehub.dataset_download("shubhamgoel27/dermnet")
 
 print(f"Dataset downloaded to temporary location: {path}")
 
 # 2.) Set directory_destination
 target_folder = os.path.join("/data/team01/ds340w/datasets", 
-                             "ham10000_data")
+                             "dermnet_data")
 
 # 3.) Move the files from the cache to your project folder
 if not os.path.exists(target_folder):
