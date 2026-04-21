@@ -3,8 +3,9 @@
 import os
 import shutil
 
-base_path = '/data/team01/ds340w/datasets/Atlas_ISIC_merged/Actinic keratosis' 
-merged_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_merged/Actinic Keratosis'
+train_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_data/Atlas dan ISIC2019 (31 classes)/train' 
+test_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_data/Atlas dan ISIC2019 (31 classes)/test' 
+merged_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_merged'
 
 def merge_datasets(source_dirs, destination):
     if not os.path.exists(destination):
@@ -38,5 +39,5 @@ def merge_datasets(source_dirs, destination):
         print(f"Finished processing: {source}")
 
 # Execute the merge
-merge_datasets([base_path], merged_dir)
+merge_datasets([train_dir, test_dir], merged_dir)
 print(f"All images successfully merged into {merged_dir}")

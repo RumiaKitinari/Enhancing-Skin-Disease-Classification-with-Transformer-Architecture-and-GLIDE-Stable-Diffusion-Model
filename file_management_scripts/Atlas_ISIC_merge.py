@@ -3,9 +3,8 @@
 import os
 import shutil
 
-base_path = '/data/team01/ds340w/datasets/Atlas_ISIC_split' 
-train_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_split' 
-test_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_split' 
+train_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_data/Atlas dan ISIC2019 (31 classes)/train' 
+test_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_data/Atlas dan ISIC2019 (31 classes)/test' 
 merged_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_merged'
 
 def merge_datasets(source_dirs, destination):
