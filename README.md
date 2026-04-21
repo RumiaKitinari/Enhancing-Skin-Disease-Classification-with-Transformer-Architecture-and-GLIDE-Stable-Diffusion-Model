@@ -1,6 +1,9 @@
 # **Training Models**
 ## **Overview** 
 ### Data Processing Pipeline
+
+![Pipeline](https://github.com/RumiaKitinari/Enhancing-Skin-Disease-Classification-with-Transformer-Architecture-and-GLIDE-Stable-Diffusion-Model/blob/main/Our_Model_Train_and_Visuals/model_tables_visuals/pipeline.png)
+
 1. **Data Loading:** Load the specified dataset using Hugging Face datasets
 2. **Preprocessing:** 
 	1. Applies transforms (random resized crop, horizontal flip, normalization)
