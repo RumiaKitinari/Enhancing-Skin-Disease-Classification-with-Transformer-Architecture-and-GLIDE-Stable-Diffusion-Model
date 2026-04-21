@@ -3,11 +3,9 @@
 import os
 import shutil
 
-base_path = '/data/team01/ds340w/datasets/Atlas_data' 
-train_dir = os.path.join(base_path, 'train')
-test_dir = os.path.join(base_path, 'test')
-val_dir = os.path.join(base_path, 'val')
-merged_dir = '/data/team01/ds340w/datasets/Atlas_merged'
+reg_dir = '/data/team01/ds340w/datasets/ham10000_split/train' 
+syn_dir = '/data/team01/ds340w/datasets/GLIDE_synthesis/HAM'
+merged_dir = '/data/team01/ds340w/datasets/HAM_GLIDE_merged'
 
 def merge_datasets(source_dirs, destination):
     if not os.path.exists(destination):
@@ -41,5 +39,5 @@ def merge_datasets(source_dirs, destination):
         print(f"Finished processing: {source}")
 
 # Execute the merge
-merge_datasets([train_dir, test_dir, val_dir], merged_dir)
+merge_datasets([reg_dir, syn_dir], merged_dir)
 print(f"All images successfully merged into {merged_dir}")

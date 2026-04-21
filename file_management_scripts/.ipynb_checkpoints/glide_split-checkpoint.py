@@ -3,11 +3,6 @@
 import os
 import shutil
 
-base_path = '/data/team01/ds340w/datasets/Atlas_ISIC_split' 
-train_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_split' 
-test_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_split' 
-merged_dir = '/data/team01/ds340w/datasets/Atlas_ISIC_merged'
-
 def merge_datasets(source_dirs, destination):
     if not os.path.exists(destination):
         os.makedirs(destination)
@@ -39,6 +34,15 @@ def merge_datasets(source_dirs, destination):
         
         print(f"Finished processing: {source}")
 
+base_path = '/data/team01/ds340w/datasets/' 
+
+
 # Execute the merge
-merge_datasets([train_dir, test_dir], merged_dir)
-print(f"All images successfully merged into {merged_dir}")
+dirs = ["train", "test", "val"]
+for d in dirs: 
+    atlas_isic_dir = os.path.join(base_path, f'Atlas_ISIC_split/{d}')
+    ham10000_dir = os.path.join(base_path, f'ham10000_supersplit/{d}')
+    merged_dir = f'/data/team01/ds340w/datasets/GLIDE_split/{d}'
+
+    merge_datasets([atlas_isic_dir, ham10000_dir], merged_dir)
+    print(f"All images successfully merged into {merged_dir}")
