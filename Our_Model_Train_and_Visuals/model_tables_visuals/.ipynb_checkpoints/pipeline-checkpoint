@@ -1,0 +1,54 @@
+digraph Pipeline {
+	bgcolor=transparent center=true concentrate=true fontsize=11 margin=0.5 nodesep=0.9 rankdir=LR ranksep=1.2 splines=spline
+	node [color="#000000" fontcolor=black fontname=Helvetica fontsize=10 style=filled]
+	edge [color="#000000" penwidth=1.3]
+	subgraph cluster_input {
+		color="#2F6FB5" fontcolor=black label=<<B>Input</B>> style=rounded
+		HAM10000 [label=HAM10000 fillcolor="#5B9BD5" shape=box3d]
+		"ISIC + Atlas" [label="ISIC + Atlas" fillcolor="#5B9BD5" shape=box3d]
+		rank=same
+	}
+	subgraph cluster_aug {
+		color="#D48806" fontcolor=black label=<<B>Augmentations</B>> style=rounded
+		Augmentation [label=Augmentation fillcolor="#F5A623" shape=box3d]
+		GLIDE [label=GLIDE fillcolor="#F5A623" shape=box3d]
+		rank=same
+	}
+	subgraph cluster_arch {
+		color="#2E8B57" fontcolor=black label=<<B>Architecture</B>> style=rounded
+		DinoV2 [label=DinoV2 fillcolor="#4CAF50" shape=box3d]
+		Swin [label=Swin fillcolor="#4CAF50" shape=box3d]
+		ViT [label=ViT fillcolor="#4CAF50" shape=box3d]
+		rank=same
+	}
+	subgraph cluster_results {
+		color=red fontcolor=black label=<<B>Results</B>> style=rounded
+		Accuracy [label=Accuracy fillcolor=red shape=box3d]
+		Performance [label=Performance fillcolor=red shape=box3d]
+		Results [label=Results fillcolor=red shape=box3d]
+		rank=same
+	}
+	subgraph cluster_vis {
+		color="#9B59B6" fontcolor=black label=<<B>Visualizations</B>> style=rounded
+		Tables [label=Tables fillcolor="#9B59B6" shape=box3d]
+		Visualizations [label=Visualizations fillcolor="#9B59B6" shape=box3d]
+		Graphs [label=Graphs fillcolor="#9B59B6" shape=box3d]
+		rank=same
+	}
+	HAM10000 -> Augmentation [color="#6FA3D9" penwidth=1.2]
+	HAM10000 -> GLIDE [color="#6FA3D9" penwidth=1.2]
+	"ISIC + Atlas" -> Augmentation [color="#6FA3D9" penwidth=1.2]
+	"ISIC + Atlas" -> GLIDE [color="#6FA3D9" penwidth=1.2]
+	Augmentation -> DinoV2 [color="#F0B35A" penwidth=1.2]
+	Augmentation -> Swin [color="#F0B35A" penwidth=1.2]
+	Augmentation -> ViT [color="#F0B35A" penwidth=1.2]
+	GLIDE -> DinoV2 [color="#F0B35A" penwidth=1.2]
+	GLIDE -> Swin [color="#F0B35A" penwidth=1.2]
+	GLIDE -> ViT [color="#F0B35A" penwidth=1.2]
+	DinoV2 -> Performance [color="#81C784" penwidth=1.2]
+	Swin -> Performance [color="#81C784" penwidth=1.2]
+	ViT -> Performance [color="#81C784" penwidth=1.2]
+	Performance -> Tables [color="#CC2B1C" penwidth=1.2]
+	Performance -> Visualizations [color="#CC2B1C" penwidth=1.2]
+	Performance -> Graphs [color="#CC2B1C" penwidth=1.2]
+}
